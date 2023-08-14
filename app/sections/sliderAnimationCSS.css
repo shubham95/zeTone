@@ -1,0 +1,23 @@
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%)
+    }
+}
+* {
+    /* box-sizing: border-box; */
+}
+.t{
+    overflow: hidden;
+}
+
+.ts{
+    display: inline-flex;
+    overflow: hidden;
+}
+.logo-slide {
+    animation: 25s slide infinite linear;
+    /* display: inline-block; */
+}
