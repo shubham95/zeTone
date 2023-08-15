@@ -15,7 +15,7 @@ export default function Home() {
       <MainPage />
       <WhyUsPage />
       <OurMentorsPage />
-      <JourneyPage />
+      {/* <JourneyPage /> */}
       <OurStudents/>
       <Testimonials/>
       <FooterPage/>

@@ -4,13 +4,14 @@ import "./sliderAnimationCSS.css";
 
 const OurStudents = () => {
     return (
-        <div className="mt-40">
+        <div className="mt-20">
             <div className="text-center">
-                <p className="text-4xl">Our Students</p>
-                <p className="text-4xl">Work with established 50+ brands</p>
+                <p className="text-2xl md:text-4xl font-semibold uppercase">Our Students</p>
+                <p className="text-lg md:text-2xl text-gray-500">Work with established 50+ brands</p>
+                <hr className="mx-[35%]"/>
             </div>
-            <div className="text-center text-xl md:text-2xl pt-20 p-6">
-                <p>Our mentors come from prestigious universities and know exactly what you need to crack that interview. They are established professionals who have abundant industry exposure. You will be paired with a mentor to give you one-on-one guidance, share industry experience and help you get your dream job.</p>
+            <div className="text-center text-base md:text-xl pt-10 p-6 mx-20">
+                <p className="px-20">Our mentors come from prestigious universities and know exactly what you need to crack that interview. They are established professionals who have abundant industry exposure. You will be paired with a mentor to give you one-on-one guidance, share industry experience and help you get your dream job.</p>
             </div>
             <div className="ts pt-40 pb-40">
 

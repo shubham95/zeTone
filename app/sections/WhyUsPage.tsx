@@ -3,7 +3,25 @@
 import React from "react";
 import Image from "next/image";
 import GradientButton from "../components/GradientButton";
+import { Variants, motion } from "framer-motion"
 
+const introVariants: Variants = {
+    hide: {
+        opacity: 0,
+        scale:0.5,
+        // x: 300,
+    },
+    show: {
+        opacity: 1,
+        scale:1,
+        x: 0,
+        transition:{
+            duration: 0.8,
+            delay: 0,
+            ease: [0, 0.71, 0.2, 1.01]
+        }
+    },
+};
 
 const clickAction = () => {
     window.alert("clicked");
@@ -11,13 +29,22 @@ const clickAction = () => {
 const WhyUsPage = () => {
 
     return(
-        <div className="w-full">
+        <div className="w-full my-20">
             <div className="w-full h-full mx-auto  grid items-center text-center">
-                <div className="px-8 font-semibold">
-                    <p className="text-2xl justify-center">Zetone is every professionals choice</p>
-                </div>
-                <div className="grid pt-10 mx-10">
-                    <div className="grid grid-rows-1 md:grid-cols-4 gap-4 mx-auto ">
+                <motion.div className="px-8 font-semibold justify-center items-center"
+                    initial="hide"
+                    whileInView="show"
+                    variants={introVariants}
+                >
+                    <p className="text-4xl ">WHAT ZETONE OFFERS</p>
+                    <hr className="mx-[35%]"/>
+                </motion.div>
+                <motion.div className="grid pt-20 mx-20"
+                    initial="hide"
+                    whileInView="show"
+                    variants={introVariants}  
+                >
+                    <div className="grid grid-rows-1 md:grid-cols-4 gap-8 mx-auto ">
                     {/* card-1 */}
 
                         <div className="flex items-center hover:scale-105 ease-in duration-300">
@@ -89,7 +116,7 @@ const WhyUsPage = () => {
                             </div>
    
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

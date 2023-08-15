@@ -13,6 +13,7 @@ const Testimonials = () => {
             </div>
 
             {/* <!--First Testimonial--> */}
+
             <div className="grid gap-6 text-center md:grid-cols-3">
                 <div>
                 <div
@@ -43,6 +44,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* <!--Second Testimonial--> */}
+                
                 <div>
                 <div
                     className="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30">

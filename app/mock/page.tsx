@@ -98,7 +98,7 @@ export default function MockRoute() {
             </div>
 
             {/* Know your interviewer */}
-
+            
             {/* Testimonials */}
             <div className="bg-[#12313c] grid grid-cols-1 md:grid-cols-2 justify-between text-center">
                 <div className="svg p-10 md:p-20">
