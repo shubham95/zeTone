@@ -13,7 +13,6 @@ const NavBar = () =>{
     const [mobNav, setMobNav] = useState(false);
     const [showTopShadow, setShowTopShadow] = useState(false)
 
-
     const toggleMobNav = () => {
         setMobNav(!mobNav);
     }
@@ -35,22 +34,22 @@ const NavBar = () =>{
             <div className={mobNav?"hidden":"flex justify-between items-center w-full h-full px-6 2xl:px-16"}>
                 <Image className="hover:scale-110 ease-in duration-300" src="/logo.png" width={125} height={30} alt="/" />
 
-                <div className="justify-between">
+                <div className="justify-between text-sm font-medium">
                     <ul className="hidden md:flex">
                         <Link href="/">
-                            <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">Home</li>
+                            <li className="ml-5 uppercase hover:scale-110 ease-in duration-300">Home</li>
                         </Link>
                         <Link href="/mock">
-                            <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">Mock Interview</li>
+                            <li className="ml-5 uppercase hover:scale-110 ease-in duration-300">Mock Interview</li>
                         </Link>
                         <Link href="/">
-                            <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">Referral</li>
+                            <li className="ml-5 uppercase hover:scale-110 ease-in duration-300">Referral</li>
                         </Link>
                         <Link href="/">
-                            <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">Courses</li>
+                            <li className="ml-5 uppercase hover:scale-110 ease-in duration-300">Courses</li>
                         </Link>
                         <Link href="/">
-                            <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">Contact</li>
+                            <li className="ml-5 uppercase hover:scale-110 ease-in duration-300">Contact</li>
                         </Link>
                     </ul>
                 </div>
