@@ -9,8 +9,8 @@ const OurMentorsPage = () => {
                 <p>Our Mentors</p>
                 <hr className="mx-[35%]"/>
             </div>
-            <div className="text-center text-base md:text-xl pt-10 p-6 items-center mx-20">
-                <p className="px-20">Our mentors come from prestigious universities and know exactly what you need to crack that interview. They are established professionals who have abundant industry exposure. You will be paired with a mentor to give you one-on-one guidance, share industry experience and help you get your dream job.</p>
+            <div className="text-center text-base md:text-xl pt-10 md:p-6 items-center md:mx-20">
+                <p className="px-4 md:px-20">Our mentors come from prestigious universities and know exactly what you need to crack that interview. They are established professionals who have abundant industry exposure. You will be paired with a mentor to give you one-on-one guidance, share industry experience and help you get your dream job.</p>
             </div>
             <div className="ts pt-20 pb-40">
 
