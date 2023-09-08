@@ -94,7 +94,7 @@ const FooterPage = () => {
         </div>
 
         {/* <!-- Main container div: holds the entire content of the footer, including four sections (Tailwind Elements, Products, Useful links, and Contact), with responsive styling and appropriate padding/margins. --> */}
-        <div className="mx-6 py-10 text-center md:text-left">
+        <div className="mx-6 py-10 text-center md:text-left flex">
           <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {/* <!-- Tailwind Elements section --> */}
             <div className="">
@@ -117,57 +117,9 @@ const FooterPage = () => {
               </p>
             </div>
             {/* <!-- Products section --> */}
-            <div className="">
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                Products
-              </h6>
-              <p className="mb-4">
-                <a href="/" className="text-neutral-600 dark:text-neutral-200">
-                  Mock Interview
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="/" className="text-neutral-600 dark:text-neutral-200">
-                  Get Referral
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="/" className="text-neutral-600 dark:text-neutral-200">
-                  Placement
-                </a>
-              </p>
-              <p>
-                <a href="/" className="text-neutral-600 dark:text-neutral-200">
-                  Enroll Now
-                </a>
-              </p>
-            </div>
+
             {/* <!-- Useful links section --> */}
-            <div className="">
-              <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-                Useful links
-              </h6>
-              <p className="mb-4">
-                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
-                  Pricing
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
-                  Settings
-                </a>
-              </p>
-              <p className="mb-4">
-                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-neutral-600 dark:text-neutral-200">
-                  Help
-                </a>
-              </p>
-            </div>
+
             {/* <!-- Contact section --> */}
             <div>
               <h6 className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
@@ -183,7 +135,7 @@ const FooterPage = () => {
                   <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                   <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                 </svg>
-                New York, NY 10012, US
+                Marathahalli, Bangalore
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start">
                 <svg
@@ -195,7 +147,7 @@ const FooterPage = () => {
                   <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                   <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                 </svg>
-                info@example.com
+                info@zetone.in
               </p>
               <p className="mb-4 flex items-center justify-center md:justify-start">
                 <svg
@@ -210,7 +162,7 @@ const FooterPage = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                + 01 234 567 88
+                +91-777-1081-666
               </p>
               <p className="flex items-center justify-center md:justify-start">
                 <svg
@@ -225,7 +177,7 @@ const FooterPage = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                + 01 234 567 89
+                +91-777-1087-666
               </p>
             </div>
           </div>

@@ -30,7 +30,7 @@ const NavBar = () => {
     <div
       className={
         showTopShadow
-          ? "fixed w-full h-20 shadow-xl z-[100] opacity-75 bg-white"
+          ? "fixed w-full h-20 shadow-xl z-[100] opacity-[100] md:opacity-75 bg-white"
           : "fixed w-full h-20 z-[100] bg-white"
       }
     >
@@ -57,9 +57,9 @@ const NavBar = () => {
                 Home
               </li>
             </Link>
-            <Link href="/mock">
+            <Link href="/interview">
               <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
-                Mock Interview
+                Interview
               </li>
             </Link>
             <Link href="/referral">
@@ -89,7 +89,7 @@ const NavBar = () => {
       <div
         className={
           mobNav
-            ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70"
+            ? "md:hidden opacity-[100] fixed left-0 top-0 w-full h-screen bg-black/70"
             : ""
         }
       >
@@ -122,9 +122,9 @@ const NavBar = () => {
                   Home
                 </li>
               </Link>
-              <Link href="/mock">
+              <Link href="/interview">
                 <li className="mt-10 text-xl uppercase hover:scale-110 ease-in duration-300">
-                  Mock Interview
+                  Interview
                 </li>
               </Link>
               <Link href="/">

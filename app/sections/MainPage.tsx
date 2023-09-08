@@ -45,7 +45,7 @@ const MainPage = () => {
         <div className="grid mt-40">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
             <motion.div
-              className="order-last md:order-first flex items-center font-medium"
+              className="order-last md:order-first flex items-center font-medium pt-10"
               initial="hide"
               whileInView="show"
               variants={introHeaderVariants}
@@ -54,7 +54,7 @@ const MainPage = () => {
                 We give <span className="text-[#4287f5]">you</span> the tools to
                 carve your path to{" "}
                 <span className="text-[#4287f5]">Success</span>
-                <div className="pt-20 text-base md:text-3xl text-gray-600">
+                <div className="text-base md:text-3xl text-gray-600 pt-5 md:pt-10">
                   Upskill yourself with industry specific courses employers are
                   looking for in a candidate
                 </div>
