@@ -1,13 +1,7 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Lottie from "lottie-react";
-import a1 from "../../public/a1.json";
-import a2 from "../../public/a2.json";
 import a3 from "../../public/a3.json";
-import a4 from "../../public/a4.json";
-import a5 from "../../public/a5.json";
-import a6 from "../../public/a6.json";
 import { Variants, motion } from "framer-motion";
 
 const introHeaderVariants: Variants = {
