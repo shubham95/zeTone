@@ -1,234 +1,330 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
+
 import NavBar from "../components/NavBar";
-import GradientButton from "../components/GradientButton";
-import FooterPage from "../sections/FooterPage";
-import InterviewModalForm from "../components/InterviewModalForm";
-import YourInterviewer from "../sections/YourInterviewer";
 
 export default function MockRoute() {
-  const [openModal, setOpenModal] = useState(false);
-
-  const toggleShowModal = () => {
-    setOpenModal(!openModal);
+  const TitleContent: React.FC<any> = ({
+    title = "",
+    content = "",
+    titleClass = "",
+    titleStyle = {},
+    contentClass = "",
+    contentStyle = {},
+    cardClass = "",
+    cardStyle = {},
+  }) => {
+    return (
+      <div className={cardClass} style={cardStyle}>
+        <div className={titleClass} style={titleStyle}>
+          {title}
+        </div>
+        <div className={contentClass} style={contentStyle}>
+          {content}
+        </div>
+      </div>
+    );
   };
 
   return (
     <div className="">
       <NavBar />
 
-      <div className="w-full h-full mx-auto pt-[25%] md:pt-[10%]">
+      <div className="md:w-3/5 w-11/12 h-full mx-auto pt-[25%] md:pt-[5%]">
         <div className="text-center">
-          <div className="text-4xl md:text-7xl">
-            <p className="">
-              Ace <span className="text-[#4287f5]">Your</span> next{" "}
-            </p>
-            <p className="">
-              Tech <span className="text-[#4287f5]">Interview</span>
-            </p>
-          </div>
-          <div className="text-2xl md:text-4xl pt-10">
-            <p className="">
-              Mock interviews with instant feedback to get you hired
-            </p>
-          </div>
-          <div className="pt-10">
-            <GradientButton
-              title="Schedule Interview"
-              clickAction={toggleShowModal}
-            />
-          </div>
-          <InterviewModalForm
-            openModal={openModal}
-            toggleShowModal={toggleShowModal}
+          <TitleContent
+            title={<p className="">About Us</p>}
+            content={<p className="">Molding Innovators for tomorrow</p>}
+            titleClass="text-2xl font-bold"
+            titleStyle={{ color: "#c2b7b1" }}
+            contentClass="text-3xl font-bold mb-2.5"
+            contentStyle={{ color: "#4e4039" }}
           />
-
-          <div className="mx-8 pt-10 flex justify-center items-center">
-            <div className="">
-              <div className="flex -space-x-4">
-                <Image
-                  className="border-2 border-white rounded-full dark:border-gray-800"
-                  src="/profile-picture-1.jpg"
-                  alt="1"
-                  width={30}
-                  height={30}
-                ></Image>
-                <Image
-                  className="border-2 border-white rounded-full dark:border-gray-800"
-                  src="/profile-picture-2.jpg"
-                  alt="1"
-                  width={30}
-                  height={30}
-                ></Image>
-                <Image
-                  className="border-2 border-white rounded-full dark:border-gray-800"
-                  src="/profile-picture-3.jpg"
-                  alt="1"
-                  width={30}
-                  height={30}
-                ></Image>
-                <Image
-                  className="border-2 border-white rounded-full dark:border-gray-800"
-                  src="/profile-picture-4.jpg"
-                  alt="1"
-                  width={30}
-                  height={30}
-                ></Image>
-              </div>
-            </div>
-            <div className="text-base md:text-xl items-center justify-center">
-              <p>280+ mock interviews conducted</p>
-            </div>
-          </div>
+          <hr className="w-14 m-auto h-0.5 bg-black" />
         </div>
-
-        {/* Mid part */}
-        <div className="grid grid-cols-1 mx-[20%]">
-          <div className="grid md:grid-cols-2 mt-20 px-30  items-center justify-center">
-            <div className="">
-              <div className="flex justify-center md:justify-start">
-                <Image
-                  className=""
-                  src="/interview.svg"
-                  width={150}
-                  height={150}
-                  alt="/"
-                />
-              </div>
-              <div className="text-xl md:text-3xl font-semibold  flex justify-center md:justify-start">
-                <p>Mock Interviews</p>
-              </div>
-              <div className="text-sm md:text-lg md:w-[80%] flex justify-center md:justify-start p-5 md:p-0">
-                <p>
-                  Practice coding, system design, and behavioral interviews with
-                  Industry Experts
-                </p>
-              </div>
-            </div>
-            <div className="">
-              <Image
-                src="/coding-mock.png"
-                width={900}
-                height={700}
-                alt="mock"
-              />
-            </div>
-          </div>
-
-          <hr className="my-5" />
-
-          <div className="grid md:grid-cols-2 mt-20 px-30  items-center justify-center">
-            <div className="">
-              <div className="flex justify-center md:justify-start">
-                <Image src="/feedback.svg" width={175} height={175} alt="/" />
-              </div>
-              <div className="text-xl md:text-3xl font-semibold  flex justify-center md:justify-start">
-                <p>Instant FeedBack</p>
-              </div>
-              <div className="text-sm md:text-lg md:w-[80%] flex justify-center md:justify-start p-5 md:p-0">
-                <p className="">
-                  Find the best places to spend your time with on-point feedback
-                  and suggestions.
-                </p>
-              </div>
-            </div>
-
-            <div className="">
-              <Image
-                src="/coding-mock.png"
-                width={900}
-                height={700}
-                alt="mock"
-              />
-            </div>
-          </div>
-
-          <hr className="my-5" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 mt-20 px-30 items-center">
-            <div className="">
-              <div className="flex justify-center md:justify-start">
-                <Image src="/code.svg" width={175} height={175} alt="/" />
-              </div>
-              <div className="text-xl md:text-3xl font-semibold  flex justify-center md:justify-start">
-                <p>Byte Sized Questions</p>
-              </div>
-              <div className="text-sm md:text-lg md:w-[80%] flex justify-center md:justify-start p-5 md:p-0">
-                <p>
-                  Get individualized coaching on real questions with expert
-                  guidance on structure and content.
-                </p>
-              </div>
-            </div>
-            <div className="">
-              <Image
-                src="/coding-mock.png"
-                width={900}
-                height={700}
-                alt="mock"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Know your interviewer */}
-
-      {/* Testimonials */}
-      <div className="mt-20 bg-[#12313c] grid grid-cols-1 md:grid-cols-2 justify-between text-center">
-        <div className="svg p-10 md:p-20">
-          <div className="svg">
-            <svg
-              className="h-12 mx-auto text-gray-400 dark:text-gray-600"
-              viewBox="0 0 24 27"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </div>
-          <div className="text-sm md:text-xl text-white p-5 md:p-10">
+        <TitleContent
+          title={
             <p>
-              Hello Interview was an absolute game changer! After using it to
-              prepare, my interview game hit another level. I was able to land 6
-              big-name offers from Discord, Doordash, JP Morgan, Docusign, and
-              Zip. Massive thanks to the Hello Interview team!
+              We are committed to finding better opportunities for students,
+              bridge the gap between the skillset of students and the
+              requirements of the industry.
             </p>
-          </div>
-        </div>
-
-        <div className="svg p-10 md:p-20">
-          <div className="svg">
-            <svg
-              className="h-12 mx-auto text-gray-400 dark:text-gray-600"
-              viewBox="0 0 24 27"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </div>
-          <div className="text-sm md:text-xl text-white p-5 md:p-10">
+          }
+          titleClass="text-lg mt-11"
+        />
+        <TitleContent
+          title={<p>Our Mission</p>}
+          content={
             <p>
-              Hello Interview was an absolute game changer! After using it to
-              prepare, my interview game hit another level. I was able to land 6
-              big-name offers from Discord, Doordash, JP Morgan, Docusign, and
-              Zip. Massive thanks to the Hello Interview team!
+              To empower untapped or underutilized talent to become full stack
+              developers capable of working with top-notch companies in the
+              software industry. We have specially designed our training courses
+              to upskill our students with quality education.
             </p>
-          </div>
-          <div className="im"></div>
-        </div>
-      </div>
+          }
+          titleClass="text-2xl font-bold mt-11"
+          titleStyle={{ color: "#c2b7b1" }}
+        />
+        <TitleContent
+          title={<p>Our Values</p>}
+          content={
+            <ul style={{ listStyle: "disc" }}>
+              <li>Quality</li>
+              <li>Trust</li>
+              <li>Self-motivation</li>
+              <li>Innovation</li>
+              <li>Hands-on learning & teaching</li>
+              <li>Equanimity</li>
+            </ul>
+          }
+          titleClass="text-2xl font-bold mt-11"
+          titleStyle={{ color: "#c2b7b1" }}
+          contentClass="mt-8 ml-8"
+        />
+        <p className="mt-8">
+          These values and characteristics define us, our students, and
+          represent our unique combination of skills, attributes, and abilities.
+        </p>
+        <TitleContent
+          title={<p>The Leaders who drive our future</p>}
+          content={
+            <p>
+              Zetone is a startup run by IIT Kanpur Alumni. We train, counsel,
+              and connect students to help them reach their goals and land their
+              dream jobs. Talent is universal but opportunities are not. Coming
+              from the same background of limited opportunities as our students.
+              The founders understand the challenges students face in the
+              absence of proper guidance, expert advice, and practical
+              experience. Through Zetone, the founding team hopes to bridge the
+              gap between students and employment opportunities. Here students
+              can learn for industry experts, share experiences, and gain
+              practical skills through live projects.
+            </p>
+          }
+          titleClass="text-2xl font-bold mt-11 text-center mb-8"
+          titleStyle={{ color: "#c2b7b1" }}
+        />
+        <TitleContent
+          title={<p className="">Our Students</p>}
+          content={<p className="">Work with established brands</p>}
+          titleClass="text-2xl font-bold text-center"
+          titleStyle={{ color: "#c2b7b1" }}
+          contentClass="text-3xl font-bold mb-2.5 text-center"
+          contentStyle={{ color: "#4e4039" }}
+          cardClass="mt-24"
+        />
 
-      <YourInterviewer />
-      <FooterPage />
+        <hr className="w-14 m-auto h-0.5 bg-black" />
+        <div className="mt-16 mb-16">
+          {/* Mobile view logo */}
+          <div className="md:hidden block p-50 w-screen ">
+            <div className="flex justify-center">
+              <div className="">
+                <div className="">
+                  <div className="item-center justify-center mx-auto">
+                    <Image
+                      src="/logo.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="item-center justify-center mx-auto">
+                    <Image
+                      src="/logo1.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="item-center justify-center mx-auto">
+                    <Image
+                      src="/logo2.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="item-center mx-auto">
+                    <Image
+                      src="/logo3.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="item-center mx-auto">
+                    <Image
+                      src="/logo4.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="item-center mx-auto">
+                    <Image
+                      src="/logo5.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className=" ">
+                <div className="flex flex-col justify-between  h-full">
+                  <div className="  mx-auto">
+                    <Image
+                      src="/logo6.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className="  mx-auto">
+                    <Image
+                      src="/logo7.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className=" mx-auto">
+                    <Image
+                      src="/logo8.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className=" mx-auto">
+                    <Image
+                      src="/logo9.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                  <div className=" mx-auto">
+                    <Image
+                      src="/logo10.png"
+                      alt="iit kanpur"
+                      height={150}
+                      width={150}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden md:block grid">
+            <div className="grid md:grid-rows-1">
+              <div className="flex items-center">
+                <div className="item-center justify-center mx-auto">
+                  <Image
+                    src="/logo.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center justify-center mx-auto">
+                  <Image
+                    src="/logo1.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center justify-center mx-auto">
+                  <Image
+                    src="/logo2.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo3.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo4.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo5.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-rows-1">
+              <div className="flex items-center">
+                <div className="item-center justify-center mx-auto">
+                  <Image
+                    src="/logo6.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center justify-center mx-auto">
+                  <Image
+                    src="/logo7.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo8.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo9.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+                <div className="item-center mx-auto">
+                  <Image
+                    src="/logo10.png"
+                    alt="iit kanpur"
+                    height={150}
+                    width={150}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <TitleContent
+          title={<p className="">Contact Us</p>}
+          titleClass="text-3xl font-bold mb-2.5 text-center"
+          titleStyle={{ color: "#4e4039" }}
+        />
+        <hr className="w-14 m-auto h-0.5 bg-black" />
+      </div>
     </div>
   );
 }

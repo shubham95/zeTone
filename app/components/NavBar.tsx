@@ -1,15 +1,16 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState, useEffect, useReducer } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
 
-const NavBar: React.FC<any> = ({ state }) => {
+import Image from "next/image";
+import Link from "next/link";
+
+const NavBar: React.FC<any> = () => {
   const [mobNav, setMobNav] = useState(false);
   const [showTopShadow, setShowTopShadow] = useState(false);
+
   const toggleMobNav = () => {
     setMobNav(!mobNav);
   };
@@ -51,58 +52,48 @@ const NavBar: React.FC<any> = ({ state }) => {
 
         <div className="justify-between">
           <ul className="hidden md:flex">
-            <Link href="/">
-              <li
-                className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300"
-                onClick={() => {
-                  console.log("state -- ", state);
-                  state?.setLoading(true);
-                }}
-              >
+            <Link
+              href={{
+                pathname: "/",
+              }}
+            >
+              <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
                 Home
               </li>
             </Link>
-            <Link href="/interview">
-              <li
-                className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300"
-                onClick={() => {
-                  console.log("interview state -- ", state);
-                  state?.setLoading(true);
-                }}
-              >
+            <Link
+              href={{
+                pathname: "/interview",
+              }}
+            >
+              <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
                 Interview
               </li>
             </Link>
-            <Link href="/referral">
-              <li
-                className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300"
-                onClick={() => {
-                  console.log("referral state -- ", state);
-                  state?.setLoading(true);
-                }}
-              >
+            <Link
+              href={{
+                pathname: "/referral",
+              }}
+            >
+              <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
                 Referral
               </li>
             </Link>
-            <Link href="/mock">
-              <li
-                className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300"
-                onClick={() => {
-                  console.log("mock state -- ", state);
-                  state?.setLoading(true);
-                }}
-              >
+            <Link
+              href={{
+                pathname: "/courses",
+              }}
+            >
+              <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
                 Courses
               </li>
             </Link>
-            <Link href="/contact">
-              <li
-                className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300"
-                onClick={() => {
-                  console.log("contact state -- ", state);
-                  state?.setLoading(true);
-                }}
-              >
+            <Link
+              href={{
+                pathname: "/contact",
+              }}
+            >
+              <li className="ml-5 text-base uppercase hover:scale-110 ease-in duration-300">
                 Contact
               </li>
             </Link>

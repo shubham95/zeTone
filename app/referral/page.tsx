@@ -1,10 +1,18 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import NavBar from "../components/NavBar";
+import InterviewModalForm from "../components/InterviewModalForm";
 import GradientButton from "../components/GradientButton";
 import FooterPage from "../sections/FooterPage";
 
 export default function ReferralRoute() {
+  const [openModal, setOpenModal] = useState(false);
+
+  const toggleShowModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <div className="">
       <NavBar />
@@ -26,8 +34,16 @@ export default function ReferralRoute() {
             </p>
           </div>
           <div className="pt-10">
-            <GradientButton title="Schedule Referral" />
+            <GradientButton
+              title="Get Referral"
+              clickAction={toggleShowModal}
+            />
           </div>
+          <InterviewModalForm
+            openModal={openModal}
+            toggleShowModal={toggleShowModal}
+            type={"referralForm"}
+          />
 
           <div className="mx-8 pt-10 flex justify-center items-center">
             <div className="">
