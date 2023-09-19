@@ -13,8 +13,8 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import { DateMonthFullyear } from "../utils/dateUtil";
 import { Alert, Snackbar } from "@mui/material";
 
-const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
-  const [mockInterViewRef, setMockInterViewRef] = useState({});
+const InterviewModalForm = ({ openModal, toggleShowModal, type }: any) => {
+  const [mockInterViewRef, setMockInterViewRef] = useState<any>({});
 
   // datepicker state
   const [date, setDate] = useState<Date | null>(null);
@@ -82,7 +82,7 @@ const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
     }
 
     // datepicker validation
-    if (selectedTime < currentTime) {
+    if (selectedTime < currentTime && type === "interviewForm") {
       setAlertObj({
         status: true,
         type: "error",
@@ -91,13 +91,52 @@ const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
       return;
     }
 
-    if (name && email && phoneNumber && date) {
+    if (name && email && phoneNumber && date && type === "interviewForm") {
       try {
         // @ts-ignore
         await addDoc(mockInterViewRef, {
           ...formData,
+          type,
           selectedDate: DateMonthFullyear(date),
           timestamp: new Date().getTime(),
+        });
+
+        // success alert
+        setAlertObj({
+          status: true,
+          type: "success",
+          msg: "Data Submitted Successfully!",
+        });
+
+        // reset form data
+        setFormData({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          selectedDate: "",
+        });
+
+        // reset date
+        setDate(null);
+
+        // close modal
+        toggleShowModal();
+      } catch (e) {
+        // error alert
+        setAlertObj({
+          status: true,
+          type: "error",
+          msg: "Some Error Occured!",
+        });
+
+        // close modal
+        toggleShowModal();
+      }
+    } else if (name && email && phoneNumber && type === "referralForm") {
+      try {
+        await addDoc(mockInterViewRef, {
+          ...formData,
+          type,
         });
 
         // success alert
@@ -157,8 +196,8 @@ const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
         </Alert>
       </Snackbar>
       <div className={openModal ? "" : "hidden"}>
-        <div className="flex top-0 left-0 inset-0 right-0 bg-black/70  w-full h-screen fixed justify-center z-[1000] overflow-x-hidden overflow-y-auto">
-          <div className="md:m-10 md:p-10 p-2 relative text-xl md:w-[50%] items-center bg-slate-50 md:rounded-xl md:shadow-xl">
+        <div className="flex top-0 left-0 inset-0 right-0 bg-black/70  w-full  h-screen fixed justify-center z-[1000] overflow-x-hidden overflow-y-auto">
+          <div className="md:m-10 md:p-10 p-2 relative text-xl md:w-[50%] h-fit items-center bg-slate-50 md:rounded-xl md:shadow-xl">
             <div className="flex justify-between">
               <h2></h2>
 
@@ -185,11 +224,22 @@ const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
             </div>
 
             <div className="text-2xl">
-              <h3>Schedule Interview</h3>
+              {type === "interviewForm" && <h3>Schedule Interview</h3>}
+              {type === "referralForm" && <h3>Get Referral</h3>}
               <div className="px-6 py-6 lg:px-8">
                 <p className="text-base">
-                  <span className="text-blue-600">Note(*)</span> We will be
-                  needing your resume in Interview
+                  {type === "interviewForm" && (
+                    <span>
+                      <span className="text-blue-600">Note(*)</span> We will be
+                      needing your resume in Interview
+                    </span>
+                  )}
+                  {type === "referralForm" && (
+                    <span>
+                      <span className="text-blue-600">Note(*)</span> We will be
+                      needing your details for referral
+                    </span>
+                  )}
                 </p>
                 <form className="space-y-6" action="#">
                   <div>
@@ -237,23 +287,26 @@ const InterviewModalForm = ({ openModal, toggleShowModal }: any) => {
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">
-                      Select Date (*)
-                    </label>
-                    <div className="flex">
-                      <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <DatePicker
-                          label="Select Date"
-                          disablePast={true}
-                          value={date}
-                          onChange={(newValue: any) => {
-                            setDate(newValue);
-                          }}
-                        />
-                      </LocalizationProvider>
+                  {type === "interviewForm" && (
+                    <div>
+                      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left">
+                        Select Date (*)
+                      </label>
+                      <div className="flex">
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                          <DatePicker
+                            label="Select Date"
+                            disablePast={true}
+                            value={date}
+                            onChange={(newValue: any) => {
+                              setDate(newValue);
+                            }}
+                          />
+                        </LocalizationProvider>
+                      </div>
                     </div>
-                  </div>
+                  )}
+
                   <div className="flex justify-between"></div>
                   <button
                     type="submit"

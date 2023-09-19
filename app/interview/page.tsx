@@ -6,7 +6,6 @@ import GradientButton from "../components/GradientButton";
 import FooterPage from "../sections/FooterPage";
 import InterviewModalForm from "../components/InterviewModalForm";
 import YourInterviewer from "../sections/YourInterviewer";
-import OurStudents from "../sections/OurStudents";
 
 export default function MockRoute() {
   const [openModal, setOpenModal] = useState(false);
@@ -36,13 +35,14 @@ export default function MockRoute() {
           </div>
           <div className="pt-10">
             <GradientButton
-              title="Schedule Interview"
+              title="Get Interview"
               clickAction={toggleShowModal}
             />
           </div>
           <InterviewModalForm
             openModal={openModal}
             toggleShowModal={toggleShowModal}
+            type={"interviewForm"}
           />
 
           <div className="mx-8 pt-10 flex justify-center items-center">
