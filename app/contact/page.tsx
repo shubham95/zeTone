@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { Grid } from "@mui/material";
 
 import NavBar from "../components/NavBar";
+import ContactForm from "../components/contactForm";
+import ContactInfo from "../components/contactInfo";
 
 export default function MockRoute() {
   const TitleContent: React.FC<any> = ({
@@ -323,7 +326,16 @@ export default function MockRoute() {
           titleClass="text-3xl font-bold mb-2.5 text-center"
           titleStyle={{ color: "#4e4039" }}
         />
-        <hr className="w-14 m-auto h-0.5 bg-black" />
+        <hr className="w-14 m-auto mb-3.5 h-0.5 bg-black" />
+        <br />
+        <Grid container spacing={4} className="mb-20">
+          <Grid item xs={12} md={4}>
+            <ContactInfo />
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <ContactForm />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

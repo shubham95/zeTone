@@ -147,17 +147,17 @@ const NavBar: React.FC<any> = () => {
                   Interview
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/referral">
                 <li className="mt-10 text-xl uppercase hover:scale-110 ease-in duration-300">
                   Get Referral
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/courses">
                 <li className="mt-10 text-xl uppercase hover:scale-110 ease-in duration-300">
                   Courses
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/contact">
                 <li className="mt-10 text-xl uppercase hover:scale-110 ease-in duration-300">
                   Contact
                 </li>
