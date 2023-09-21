@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { Grid } from "@mui/material";
 
 import NavBar from "../components/NavBar";
 import ContactForm from "../components/contactForm";
 import ContactInfo from "../components/contactInfo";
-import { Grid } from "@mui/material";
 
 export default function MockRoute() {
   const TitleContent: React.FC<any> = ({

@@ -1,37 +1,34 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Alert, Box, Grid, Snackbar, TextField } from "@mui/material";
-import { useActions, useValues } from "kea";
 import validator from "validator";
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import LoadingButton from "@mui/lab/LoadingButton";
-
-import logic from "../logics/contactFormLogic";
 
 const ContactForm: React.FC = () => {
   const [mockInterViewRef, setMockInterViewRef] = useState<any>({});
 
   const [loading, setLoading] = useState(false);
 
+  const [formState, setFormState] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const [formError, setFormError] = useState({
+    nameErr: false,
+    phoneErr: false,
+    emailErr: false,
+  });
+
   const [alertObj, setAlertObj] = useState({
     status: false,
     type: "success",
     msg: "",
   });
-
-  const { name, email, phone, message, nameError, emailError, phoneError } =
-    useValues(logic);
-
-  const {
-    updateName,
-    updateEmail,
-    updatePhone,
-    updateMessage,
-    updateNameError,
-    updateEmailError,
-    updatePhoneError,
-  } = useActions(logic);
 
   // alert bar close handler
   const handleClose = () => {
@@ -55,42 +52,33 @@ const ContactForm: React.FC = () => {
   }, []);
 
   const handleSubmit = async () => {
+    const { name, phone, email, message } = formState;
     let isError = false;
+    const _formErr = { nameErr: false, phoneErr: false, emailErr: false };
     if (name === "") {
-      updateNameError({ ...nameError, error: true });
+      _formErr["nameErr"] = true;
     }
     if (!validator.isEmail(email)) {
       if (email === "") {
-        updateEmailError({ ...emailError, error: true });
-      } else {
-        updateEmailError({
-          ...emailError,
-          error: true,
-          desc: "Enter valid email",
-        });
+        _formErr["emailErr"] = true;
       }
       isError = true;
     }
     if (!validator.isMobilePhone(phone)) {
       if (phone === "") {
-        updatePhoneError({ ...phoneError, error: true });
-      } else {
-        updatePhoneError({
-          ...phoneError,
-          error: true,
-          desc: "Enter valid phone",
-        });
+        _formErr["phoneErr"] = true;
       }
       isError = true;
+    }
+
+    if (isError) {
+      setFormError(_formErr);
     }
 
     if (!isError) {
       try {
         await addDoc(mockInterViewRef, {
-          name,
-          email,
-          phone,
-          message,
+          ...formState,
           type: "contactUsForm",
         });
 
@@ -100,10 +88,12 @@ const ContactForm: React.FC = () => {
           msg: "Data Submitted Successfully!",
         });
 
-        updateName("");
-        updateEmail("");
-        updatePhone("");
-        updateMessage("");
+        setFormState({
+          name: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
       } catch {
         // error alert
         setAlertObj({
@@ -144,14 +134,17 @@ const ContactForm: React.FC = () => {
             <TextField
               fullWidth
               required
-              error={nameError.error}
-              value={name}
+              error={formError.nameErr}
+              value={formState.name}
               id="outlined-error-helper-text"
               label="Name"
-              helperText={nameError.error ? nameError.desc : ""}
+              helperText={formError.nameErr ? "Please enter your name." : ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                updateNameError({ ...nameError, error: false });
-                updateName(event.target.value);
+                setFormError({ ...formError, nameErr: false });
+                setFormState({
+                  ...formState,
+                  name: event.target.value,
+                });
               }}
             />
           </Grid>
@@ -159,14 +152,17 @@ const ContactForm: React.FC = () => {
             <TextField
               fullWidth
               required
-              error={emailError.error}
-              value={email}
+              error={formError.emailErr}
+              value={formState.email}
               id="outlined-error-helper-text"
               label="Email"
-              helperText={emailError.error ? emailError.desc : ""}
+              helperText={formError.emailErr ? "Enter valid email id." : ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                updateEmailError({ ...emailError, error: false });
-                updateEmail(event.target.value);
+                setFormError({ ...formError, emailErr: false });
+                setFormState({
+                  ...formState,
+                  email: event.target.value,
+                });
               }}
             />
           </Grid>
@@ -174,14 +170,17 @@ const ContactForm: React.FC = () => {
             <TextField
               fullWidth
               required
-              error={phoneError.error}
-              value={phone}
+              error={formError.phoneErr}
+              value={formState.phone}
               id="outlined-error-helper-text"
               label="Phone"
-              helperText={phoneError.error ? phoneError.desc : ""}
+              helperText={formError.phoneErr ? "Enter valid phone number." : ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                updatePhoneError({ ...phoneError, error: false });
-                updatePhone(event.target.value);
+                setFormError({ ...formError, phoneErr: false });
+                setFormState({
+                  ...formState,
+                  phone: event.target.value,
+                });
               }}
             />
           </Grid>
@@ -190,11 +189,14 @@ const ContactForm: React.FC = () => {
               fullWidth
               id="outlined-multiline-static"
               label="Message"
-              value={message}
+              value={formState.message}
               multiline
               rows={9}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                updateMessage(event.target.value);
+                setFormState({
+                  ...formState,
+                  message: event.target.value,
+                });
               }}
             />
           </Grid>
