@@ -108,7 +108,12 @@ export default function MockRoute() {
               </div>
             </div>
             <div className="">
-              <Image src="/coding.png" width={900} height={700} alt="mock" />
+              <Image
+                src="/coding.png"
+                width={900}
+                height={700}
+                alt="mock"
+              />
             </div>
           </div>
 
@@ -213,11 +218,7 @@ export default function MockRoute() {
           </div>
           <div className="text-sm md:text-xl text-white p-5 md:p-10">
             <p>
-              Wow, Zetone has truly transformed my career prospects! Thanks to
-              their exceptional support, I achieved remarkable results in my
-              recent interviews. I'm thrilled to share that I secured offers
-              from some industry giants including Oracle. A heartfelt thank you
-              to the entire Zetone team for their invaluable assistance
+            Wow, Zetone has truly transformed my career prospects! Thanks to their exceptional support, I achieved remarkable results in my recent interviews. I'm thrilled to share that I secured offers from some industry giants including Oracle. A heartfelt thank you to the entire Zetone team for their invaluable assistance
             </p>
           </div>
           <div className="im"></div>
