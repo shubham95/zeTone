@@ -36,8 +36,7 @@ const AreYouReadySection = () => {
         </div>
         <div className="text-center text-base md:text-xl pt-10 items-center md:mx-20">
           <p className="px-20">
-            Book Your <span className=" text-red-700 font-bold">Free</span> slot
-            now to levrage zetone expertise to understand where you stand. Get{" "}
+          Book Your <span className=" text-red-700 font-bold">Free</span> Slot Now to Harness Zetone's Expertise and Gain Clarity on Your Current Position. Get Started Today!!
           </p>
         </div>
         <div

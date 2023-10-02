@@ -104,7 +104,7 @@ export default function ReferralRoute() {
             </div>
             <div className="">
               <Image
-                src="/coding-mock.png"
+                src="/resume.jpeg"
                 width={1000}
                 height={700}
                 alt="mock"
@@ -117,7 +117,7 @@ export default function ReferralRoute() {
           <div className="grid grid-cols-1 md:grid-cols-2 mt-20 px-30">
             <div className="">
               <Image
-                src="/coding-mock.png"
+                src="/coding.png"
                 width={900}
                 height={700}
                 alt="mock"
@@ -160,7 +160,7 @@ export default function ReferralRoute() {
             </div>
             <div className="">
               <Image
-                src="/coding-mock.png"
+                src="/referral.png"
                 width={900}
                 height={700}
                 alt="mock"
@@ -190,10 +190,7 @@ export default function ReferralRoute() {
           </div>
           <div className="text-xl text-white p-5 md:p-10">
             <p>
-              Hello Interview was an absolute game changer! After using it to
-              prepare, my interview game hit another level. I was able to land 6
-              big-name offers from Discord, Doordash, JP Morgan, Docusign, and
-              Zip. Massive thanks to the Hello Interview team!
+            Wow, Zetone has truly transformed my career prospects! Thanks to their exceptional support, I achieved remarkable results in my recent interviews. I'm thrilled to share that I secured offers from some industry giants including Oracle. A heartfelt thank you to the entire Zetone team for their invaluable assistance
             </p>
           </div>
         </div>
@@ -214,10 +211,10 @@ export default function ReferralRoute() {
           </div>
           <div className="text-xl text-white p-5 md:p-10">
             <p>
-              Hello Interview was an absolute game changer! After using it to
+            Zetone Interview was an absolute game changer! After using it to
               prepare, my interview game hit another level. I was able to land 6
               big-name offers from Discord, Doordash, JP Morgan, Docusign, and
-              Zip. Massive thanks to the Hello Interview team!
+              Zip. Massive thanks to the Zetone Interview team!
             </p>
           </div>
           <div className="im"></div>
